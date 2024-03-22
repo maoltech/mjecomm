@@ -39,6 +39,15 @@ Welcome to our Ecommerce Project! This project was developed as part of a job in
     ```bash
     npm test
     ```
+### To run on docker
+1. **Build Image**
+    ```bash
+    docker build -t mjecomm .
+    ```
+2. **Run the docker Image**
+    ```bash
+    docker run -p 3000:80 mjecomm
+    ```
 
 ## API Documentation
 
