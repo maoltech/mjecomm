@@ -5,6 +5,7 @@ import { otherRoutes } from "./others.router";
 import { transactionRoutes } from "./transaction.router";
 import { userRoutes } from "./user.router";
 import { walletRoutes } from "./wallet.router";
+import { productRoutes } from "./product.router";
 
 class Routes{
 
@@ -22,6 +23,7 @@ class Routes{
         this.router.use('/transaction', transactionRoutes.router);
         this.router.use('/user', userRoutes.router);
         this.router.use('/wallet', walletRoutes.router);
+        this.router.use('/product', productRoutes.router);
     }
 }
 

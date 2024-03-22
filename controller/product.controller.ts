@@ -7,7 +7,7 @@ import { productService } from "../service/product.service";
 
 class ProductController {
 
-    public createProduct = (req: any, res: Response) =>{
+    public createProduct = async(req: any, res: Response) =>{
 
         const {userId, body} = req
         const {error} = productValidation.createProductValidation(body)
@@ -16,7 +16,7 @@ class ProductController {
         }
 
         try{
-            const data = productService.createProduct(body, userId)
+            const data = await productService.createProduct(body, userId)
             return SuccessResponse(res, data)
         }catch(err: any){
             return ServerResponse(res, {message: err.message})
@@ -24,17 +24,18 @@ class ProductController {
         
     };
 
-    public getProduct = (req: any, res: Response) =>{
+    public getProduct = async(req: any, res: Response) =>{
         const{userId, params} = req
         try{
-            const data = productService.getProduct(params.productId, userId)
+            console.log(params.productId);
+            const data = await productService.getProduct(params.productId, userId)
             return SuccessResponse(res, data)
         }catch(error: any){
             return ServerResponse(res, {message: error.message})
         }
     };
 
-    public updateProduct = (req: any, res: Response) => {
+    public updateProduct = async(req: any, res: Response) => {
         const {params, body} = req
         const {error} = productValidation.updateProductValidation(body)
         if(error){
@@ -42,7 +43,7 @@ class ProductController {
         }
 
         try{
-            const data = productService.updateProduct(body, params.productId)
+            const data = await productService.updateProduct(body, params.productId)
             return SuccessResponse(res, data)
         }catch(error: any){
             return ServerResponse(res, {message: error.message})
@@ -50,10 +51,10 @@ class ProductController {
 
     };
 
-    public deleteProduct = (req: any, res: Response) => {
+    public deleteProduct = async(req: any, res: Response) => {
         const {userId, params} = req
         try{
-            const data = productService.deleteProduct(params.productId, userId)
+            const data = await productService.deleteProduct(params.productId, userId)
             return SuccessResponse(res, data)
         }catch(error: any){
             return ServerResponse(res, {message: error.message})
@@ -61,9 +62,10 @@ class ProductController {
     };
 
 
-    public getAllProducts = (req: any, res: Response) => {
+    public getAllProducts = async (req: any, res: Response) => {
         try{
-            const data = productService.getAllUserProducts(req.userId)
+            
+            const data = await productService.getAllUserProducts(req.userId)
             return SuccessResponse(res, data)
         }catch(error: any){
             return ServerResponse(res, {message: error.message})
@@ -71,9 +73,9 @@ class ProductController {
     };
 
 
-    public getProductById = (req: any, res: Response) => {
+    public getProductById = async(req: any, res: Response) => {
         try{
-            const data = productService.getProductById(req.params.productId);
+            const data = await productService.getProductById(req.params.productId);
             return SuccessResponse(res, data)
         }catch(error: any){
             return ServerResponse(res, {message: error.message})

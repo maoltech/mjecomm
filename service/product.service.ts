@@ -16,7 +16,7 @@ class ProductService {
 
     public getProduct = async(productId: string, userId: string) =>{
         try {
-            return await Product.findOne({"_id": productId, userId});
+            return await Product.findOne({"_id": productId, ownerId: userId});
         } catch (error) {
             throw error
         }
