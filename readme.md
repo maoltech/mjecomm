@@ -17,8 +17,8 @@ Welcome to our Ecommerce Project! This project was developed as part of a job in
 
 1. **Clone the Repository**: 
     ```bash
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone https://github.com/maoltech/mjecomm.git
+    cd mjecomm
     ```
 
 2. **Install Dependencies**: 
