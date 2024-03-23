@@ -104,7 +104,7 @@ class AuthController{
         }
         console.log(tempData);
         await Temp.create(tempData);
-        const mail = `Thank you for registering  on orrellFX your otp is ${otp}`;
+        const mail = `Thank you for registering  on mjecomm your otp is ${otp}`;
         // await messages.sendOTPMessage(mail, phone)
         const data = 'OTP sent successfully'
         return SuccessResponse(res,{data, otp})
@@ -140,7 +140,7 @@ class AuthController{
         }
         await Temp.create(tempData);
         const link = `${process.env.FRONTEND_URL as string}verifymail/?email=${userMail}&otp=${otp}`
-        const mail = `Thank you for registering  on orrellFX your otp is ${otp}, link: ${link}`;
+        const mail = `Thank you for registering  on mjecomm your otp is ${otp}, link: ${link}`;
         const subject = 'Verification-Mail'
         await messages.sendMail(mail, userMail,subject)
         const data = 'OTP sent successfully'
