@@ -1,11 +1,5 @@
 import axios from 'axios';
-import { TERMI_API_KEY, MAILGUN_API_KEY, MAILGUN_DOMAIN, TERMI_SENDER_ID, SENDER_EMAIL, MAILGUN_API_URL } from '../constants/environments'
-
 class Messages {
-
-    constructor() {
-
-    }
 
     public sendOTPMessage = async (message: string, phone: string) => {
         try {

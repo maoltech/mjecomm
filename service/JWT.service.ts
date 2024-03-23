@@ -1,4 +1,3 @@
-// import { JWT_TOKEN_SECRET,  JWT_REFRESHTOKEN_SECRET} from "../constants/environments";
 import jwt from 'jsonwebtoken';
 import { User } from "../model/user.model";
 
@@ -7,14 +6,6 @@ interface DecodedToken {
     email: string;
   }
 class JWTService{
-
-    // private readonly secretKey: string;
-    // private readonly refreshTokenSecret: string;
-
-    constructor(){
-        // this.secretKey = JWT_TOKEN_SECRET as string;
-        // this.refreshTokenSecret = JWT_REFRESHTOKEN_SECRET as string;
-    }
 
     public createToken = ( userId: String, email: String ) =>{
 
